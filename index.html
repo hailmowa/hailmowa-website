@@ -19,20 +19,86 @@
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
 @media(max-width:850px){.disco,.vids{grid-template-columns:1fr 1fr}}@media(max-width:520px){.disco,.vids{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ===== FEATURED RELEASE: LUV U LATELY ===== */
+.fr{--mud:#3d4a2b;--mud2:#26301b;--moss:#7d8c4f;--sage:#a9b57e;position:relative;overflow:hidden;padding:84px 0;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 20% 30%,#1d2614 0%,#0c0f09 45%,#060705 80%)}
+.fr:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,#ffffff05 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
+.fr:after{content:"";position:absolute;inset:-50%;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:frgrain 1.2s steps(4) infinite}
+@keyframes frgrain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+.fr-grid{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,64px);align-items:center}
+.fr-art{position:relative;aspect-ratio:1/1;border:1px solid #3a4429;border-radius:4px;overflow:hidden;background:radial-gradient(circle at 35% 30%,#4a5a30 0%,#26301b 35%,#0b0d08 78%);box-shadow:0 30px 80px #00000099,0 0 0 1px #00000066 inset;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,4vw,30px)}
+.fr-art:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,#00000040 0 2px,transparent 2px 4px);pointer-events:none}
+.fr-art:after{content:"";position:absolute;left:0;right:0;height:18%;top:-20%;background:linear-gradient(180deg,transparent,#a9b57e14,transparent);animation:frscan 6s linear infinite;pointer-events:none}
+@keyframes frscan{to{top:110%}}
+.fr-art .tag{position:relative;z-index:1;display:flex;justify-content:space-between;font-size:.62rem;letter-spacing:.24em;font-weight:800;color:var(--sage)}
+.fr-art .big{position:relative;z-index:1;font-weight:900;line-height:.82;letter-spacing:-.07em;font-size:clamp(3.4rem,11vw,7.2rem);color:#dfe4cf;text-transform:uppercase}
+.fr-art .big small{display:block;font-size:.32em;letter-spacing:.02em;color:var(--moss);margin-top:.35em}
+.glitch{position:relative;display:inline-block}
+.glitch:before,.glitch:after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.glitch:before{color:#7d8c4f;transform:translate(-2px,0);clip-path:inset(0 0 65% 0);animation:frg1 5s infinite steps(1);opacity:.85}
+.glitch:after{color:#3e5a36;transform:translate(2px,0);clip-path:inset(60% 0 0 0);animation:frg2 5s infinite steps(1);opacity:.85}
+@keyframes frg1{0%,86%,100%{clip-path:inset(0 0 100% 0);transform:none}87%{clip-path:inset(10% 0 62% 0);transform:translate(-4px,-1px)}89%{clip-path:inset(48% 0 30% 0);transform:translate(3px,1px)}91%{clip-path:inset(72% 0 8% 0);transform:translate(-2px,0)}93%{clip-path:inset(0 0 100% 0)}}
+@keyframes frg2{0%,88%,100%{clip-path:inset(100% 0 0 0);transform:none}89%{clip-path:inset(62% 0 14% 0);transform:translate(4px,1px)}91%{clip-path:inset(20% 0 55% 0);transform:translate(-3px,-1px)}94%{clip-path:inset(100% 0 0 0)}}
+.fr-info .kicker{color:var(--sage)}
+.fr-status{display:inline-flex;align-items:center;gap:9px;border:1px solid #3d4a2b;background:#141a0e;color:var(--sage);padding:7px 12px;font-size:.66rem;font-weight:900;letter-spacing:.2em;border-radius:2px;margin-bottom:16px}
+.fr-status i{width:7px;height:7px;border-radius:50%;background:var(--moss);box-shadow:0 0 10px var(--moss);animation:frblink 1.6s infinite}
+@keyframes frblink{50%{opacity:.25}}
+.fr h2{font-size:clamp(2.8rem,8vw,5.6rem);line-height:.9;letter-spacing:-.07em;margin:6px 0 14px;text-transform:uppercase}
+.fr-artist{font-size:.8rem;font-weight:800;letter-spacing:.3em;color:#c9cdbf}
+.fr-date{display:flex;align-items:stretch;gap:0;margin:26px 0 8px;border:1px solid #33402a;background:#0d110a;width:fit-content;max-width:100%}
+.fr-date>div{padding:14px 18px;border-right:1px solid #33402a}.fr-date>div:last-child{border-right:0}
+.fr-date .lab{display:block;font-size:.6rem;letter-spacing:.22em;color:#868c79;font-weight:800;margin-bottom:6px}
+.fr-date strong{font-size:clamp(1.05rem,2.6vw,1.35rem);letter-spacing:.02em;color:#eef0e6}
+.fr-count{display:flex;gap:8px;margin:14px 0 4px;font-variant-numeric:tabular-nums}
+.fr-count[hidden]{display:none}
+.fr-count div{min-width:62px;text-align:center;padding:10px 6px;border:1px solid #2c3622;background:#10150c}
+.fr-count b{display:block;font-size:1.5rem;color:var(--sage);letter-spacing:-.02em}
+.fr-count span{font-size:.56rem;letter-spacing:.2em;color:#7e8473;font-weight:800}
+.fr .actions{margin-top:26px}
+.btn.fr-cta{position:relative;background:var(--moss);border-color:var(--moss);color:#0a0c07;font-size:.9rem;padding:17px 28px;letter-spacing:.14em;font-weight:900;box-shadow:0 0 0 1px #00000055 inset,0 14px 40px #7d8c4f33;transition:transform .2s,box-shadow .2s,background .2s}
+.btn.fr-cta:hover{background:var(--sage);transform:translateY(-2px);box-shadow:0 18px 50px #a9b57e40;animation:frjit .3s steps(2) 1}
+@keyframes frjit{0%{transform:translate(1px,-2px)}50%{transform:translate(-2px,-1px)}100%{transform:translateY(-2px)}}
+.btn.fr-ghost{border-color:#3d4a2b;color:#c9cdbf}.btn.fr-ghost:hover{border-color:var(--moss);color:var(--sage)}
+@media(max-width:780px){.fr{padding:56px 0}.fr-grid{grid-template-columns:1fr}.fr-art{max-width:440px;width:100%;margin:0 auto}}
+@media(max-width:520px){.fr-date{width:100%}.fr-date>div{flex:1;padding:12px}.fr-count{gap:6px}.fr-count div{flex:1;min-width:0}.fr .actions .btn{width:100%}}
 </style>
 </head>
 <body>
 <header class="wrap nav">
 <a class="logo" href="#home">HAILMOWA<span>®</span></a>
-<nav class="navlinks" aria-label="Main navigation"><a href="#music">MUSIC</a><a href="#stream">STREAM</a><a href="#discography">DISCOGRAPHY</a><a href="#videos">VIDEOS</a><a href="#merch">MERCH</a><a href="#contact">CONTACT</a></nav>
+<nav class="navlinks" aria-label="Main navigation"><a href="#new-single">NEW SINGLE</a><a href="#music">MUSIC</a><a href="#stream">STREAM</a><a href="#discography">DISCOGRAPHY</a><a href="#videos">VIDEOS</a><a href="#merch">MERCH</a><a href="#contact">CONTACT</a></nav>
 </header>
-<div class="ticker" aria-hidden="true"><div>TYLA — OUT NOW <i>✦</i> LOST FILES VOL. 1 <i>✦</i> LOST FILES VOL. 2 <i>✦</i> LOST FILES VOL. 3.5 <i>✦</i> ROKSTAR 3 <i>✦</i> EVERYDAY <i>✦</i> STREAM EVERYWHERE <i>✦</i> TYLA — OUT NOW <i>✦</i> LOST FILES VOL. 1 <i>✦</i> LOST FILES VOL. 2 <i>✦</i> LOST FILES VOL. 3.5 <i>✦</i> ROKSTAR 3 <i>✦</i> EVERYDAY <i>✦</i> STREAM EVERYWHERE <i>✦</i> </div></div>
+<div class="ticker" aria-hidden="true"><div>LUV U LATELY — 11.16 <i>✦</i> TYLA — OUT NOW <i>✦</i> LOST FILES VOL. 1 <i>✦</i> LOST FILES VOL. 2 <i>✦</i> LOST FILES VOL. 3.5 <i>✦</i> ROKSTAR 3 <i>✦</i> EVERYDAY <i>✦</i> STREAM EVERYWHERE <i>✦</i> LUV U LATELY — 11.16 <i>✦</i> TYLA — OUT NOW <i>✦</i> LOST FILES VOL. 1 <i>✦</i> LOST FILES VOL. 2 <i>✦</i> LOST FILES VOL. 3.5 <i>✦</i> ROKSTAR 3 <i>✦</i> EVERYDAY <i>✦</i> STREAM EVERYWHERE <i>✦</i> </div></div>
 <main>
 <section class="hero" id="home"><div class="wrap">
 <div class="eyebrow"><span class="eq"><b></b><b></b><b></b><b></b></span>NOW PLAYING — TYLA</div>
 <h1>WELCOME<br>TO MY<br><span class="glow">WORLD.</span></h1>
 <p>New sounds. Lost files. No explanations. Step into the world of HailMowa.</p>
 <div class="actions"><a class="btn primary" href="#music">LISTEN NOW ↗</a><a class="btn" href="#videos">WATCH VISUALS</a><a class="btn" href="#stream">STREAM EVERYWHERE</a></div>
+</div></section>
+<!-- ===== FEATURED RELEASE: LUV U LATELY =====
+  To switch after release, it happens automatically on the date below.
+  To force it, set data-status="out" and (optionally) data-listen-url to the final streaming link. -->
+<section class="fr" id="new-single" aria-labelledby="fr-title"
+  data-status="auto"
+  data-release="2026-11-16T00:00:00"
+  data-presave-url="https://ffm.to/luvulately"
+  data-listen-url="https://ffm.to/luvulately">
+<div class="wrap fr-grid">
+<div class="fr-art reveal" aria-hidden="true">
+<div class="tag"><span>HAILMOWA</span><span>NEW SINGLE</span></div>
+<div class="big"><span class="glitch" data-text="LUV U">LUV U</span><br><span class="glitch" data-text="LATELY">LATELY</span><small>11.16.26</small></div>
+<div class="tag"><span>// UNDERGROUND</span><span>HM®</span></div>
+</div>
+<div class="fr-info">
+<div class="fr-status"><i></i><span data-fr="status">OUT NOVEMBER 16</span></div>
+<div class="fr-artist">HAILMOWA</div>
+<h2 id="fr-title"><span class="glitch" data-text="Luv U Lately">Luv U Lately</span></h2>
+<p class="muted" data-fr="blurb">The new single. Pre-save now so it hits your library the second it drops.</p>
+<div class="fr-date"><div><span class="lab">RELEASE DATE</span><strong>NOVEMBER 16, 2026</strong></div><div><span class="lab">FORMAT</span><strong>SINGLE</strong></div></div>
+<div class="fr-count" data-fr="count"><div><b data-u="d">--</b><span>DAYS</span></div><div><b data-u="h">--</b><span>HRS</span></div><div><b data-u="m">--</b><span>MIN</span></div><div><b data-u="s">--</b><span>SEC</span></div></div>
+<div class="actions"><a class="btn fr-cta" data-fr="cta" href="https://ffm.to/luvulately" target="_blank" rel="noopener">PRE-SAVE NOW ↗</a><a class="btn fr-ghost" href="#stream">FOLLOW HAILMOWA</a></div>
+</div>
 </div></section>
 <section class="section" id="music"><div class="wrap">
 <div class="sectionhead"><div><div class="kicker">01 / THE SOUND</div><h2>OUT NOW</h2><p class="muted">Tap in with the latest release.</p></div><span class="pill">HAILMOWA</span></div>
@@ -52,5 +118,13 @@
 <script>document.getElementById('year').textContent=new Date().getFullYear();
 var io='IntersectionObserver' in window&&new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(i%3)*90+'ms';io?io.observe(el):el.classList.add('in')});
-document.querySelectorAll('[data-yt]').forEach(function(a){a.addEventListener('click',function(ev){if(a.dataset.on)return;ev.preventDefault();a.dataset.on=1;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1';f.title=a.querySelector('strong').textContent;f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;var t=a.querySelector('.thumb');t.innerHTML='';t.appendChild(f)})});</script>
+document.querySelectorAll('[data-yt]').forEach(function(a){a.addEventListener('click',function(ev){if(a.dataset.on)return;ev.preventDefault();a.dataset.on=1;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1';f.title=a.querySelector('strong').textContent;f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;var t=a.querySelector('.thumb');t.innerHTML='';t.appendChild(f)})});
+(function(){var fr=document.getElementById('new-single');if(!fr)return;
+var d=fr.dataset,rel=new Date(d.release),q=function(k){return fr.querySelector('[data-fr="'+k+'"]')},cta=q('cta'),cnt=q('count'),t;
+function out(){fr.classList.add('is-out');q('status').textContent='OUT NOW';q('blurb').textContent='The new single is out now. Stream it everywhere.';cta.textContent='LISTEN NOW ↗';cta.href=d.listenUrl||d.presaveUrl;cnt.hidden=true;if(t)clearInterval(t)}
+if(d.status==='out')return out();if(d.status==='presave'){cnt.hidden=true;return}
+function p(n){return(n<10?'0':'')+n}
+function tick(){var ms=rel-new Date();if(isNaN(ms)){cnt.hidden=true;return}if(ms<=0)return out();var s=Math.floor(ms/1e3);
+cnt.querySelector('[data-u=d]').textContent=p(Math.floor(s/86400));cnt.querySelector('[data-u=h]').textContent=p(Math.floor(s%86400/3600));cnt.querySelector('[data-u=m]').textContent=p(Math.floor(s%3600/60));cnt.querySelector('[data-u=s]').textContent=p(s%60)}
+tick();t=setInterval(tick,1000)})();</script>
 </body></html>
